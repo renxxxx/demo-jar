@@ -1,7 +1,8 @@
 package demo.demo;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Map;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,4 +18,10 @@ public class MainClass2 {
 		System.out.println(cntxt.lookup("demo:a"));
 	}
 
+	public void name() {
+		List<String>[] lsa = new ArrayList[1];
+		lsa[1]= new ArrayList<Integer>();
+		
+		Object o = lsa;
+	}
 }
