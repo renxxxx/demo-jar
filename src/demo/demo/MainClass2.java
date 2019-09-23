@@ -11,17 +11,24 @@ import javax.naming.NamingException;
 public class MainClass2 {
 
 	public static void main(String[] args) throws NamingException {
-		Hashtable<String, String> env = new Hashtable<String, String>();
-		env.put(Context.URL_PKG_PREFIXES, "demo1:demo2.demo3:demo");
-		Context cntxt = new InitialContext(env);
-		cntxt.bind("demo:a", "aaa");
-		System.out.println(cntxt.lookup("demo:a"));
+		lambda();
 	}
 
-	public void name() {
-		List<String>[] lsa = new ArrayList[1];
-		lsa[1]= new ArrayList<Integer>();
-		
-		Object o = lsa;
+	public static void lambda() {
+		final int num = 1;
+		Converter<Integer, String> s = (param) -> {
+			int a = 1;
+			System.out.println(String.valueOf(param + num));
+			a = 2;
+			param = 3;
+		};
+		s.convert(2); // 输出结果为 3
+
 	}
+
+	@FunctionalInterface
+	public interface Converter<T1, T2> {
+		void convert(int i);
+	}
+
 }
