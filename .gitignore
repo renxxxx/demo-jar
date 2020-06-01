@@ -13,9 +13,6 @@ bin/
 build/
 target/
 
-.classpath
-.project
-.settings/
 .svn/
 
 .idea/
